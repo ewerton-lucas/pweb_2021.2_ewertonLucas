@@ -28,15 +28,16 @@ li a:hover:not(.active) {
 }
 
 .active {
-  background-color: #0489aa;
+  background-color: rgb(107, 155, 76);
 }
 
-div {
+div > h1{
   text-align: center;
 }
 
 img {
-  width: 90%;
-  height: 70%;
-  padding-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

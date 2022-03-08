@@ -7,6 +7,46 @@
 
 <body>
 
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="adicionarPessoa.html">Adicionar pessoa</a></li>
+        <li><a href="listarPessoas.html">Listar pessoas</a></li>
+        <li><a href="noticias.html">Canais de notícias</a></li>
+        <li><a href="contato.html">Mande um e-Mail</a></li>
+        <li style="float:right"><a href="sobre.html">Sobre o site</a></li>
+    </ul>
+    
+    <h1>Formulário para edição de pessoas:</h1>
+
+    <form action="">
+
+        <label for="nomeCompleto">Nome completo *:</label>
+        <input type="text" placeholder="Seu nome completo">
+        <br>
+        
+        <label for="dataNascimento">Data de nascimento *:</label>
+        <input type="date">
+        <br>
+
+        <label for="eMail">e-Mail *:</label> 
+        <input type="email" placeholder="nome@dominio.com">
+        <br>
+
+        <label for="sexo">Sexo*:</label><br>
+        <input type="radio" id="masculino" name="sexo" value="Masculino">
+        <label for="masculino">Masculino</label><br>
+        <input type="radio" id="feminino" name="sexo" value="Feminino">
+        <label for="feminino">Feminino</label><br>
+        <input type="radio" id="naoInformar" name="sexo" value="Não informar">
+        <label for="naoInformar">Não informar</label>
+        <br>
+
+        <input type="reset" value="Limpar">
+        <input type="submit" value="Cadastrar!">
+
+        <p>* Campo obrigatório</p>
+
+
 </body>
 
 </html>

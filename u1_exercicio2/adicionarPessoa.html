@@ -16,6 +16,37 @@
         <li style="float:right"><a href="sobre.html">Sobre o site</a></li>
     </ul>
     
+    <h1>Formulário para cadastro de pessoas:</h1>
+
+    <form action="adicionadaComSucesso.html">
+
+        <label for="nomeCompleto">Nome completo *:</label>
+        <input type="text" placeholder="Seu nome completo">
+        <br>
+        
+        <label for="dataNascimento">Data de nascimento *:</label>
+        <input type="date">
+        <br>
+
+        <label for="eMail">e-Mail *:</label> 
+        <input type="email" placeholder="nome@dominio.com">
+        <br>
+
+        <label for="sexo">Sexo*:</label><br>
+        <input type="radio" id="masculino" name="sexo" value="Masculino">
+        <label for="masculino">Masculino</label><br>
+        <input type="radio" id="feminino" name="sexo" value="Feminino">
+        <label for="feminino">Feminino</label><br>
+        <input type="radio" id="naoInformar" name="sexo" value="Não informar">
+        <label for="naoInformar">Não informar</label>
+        <br>
+
+        <input type="reset" value="Limpar">
+        <input type="submit" value="Cadastrar!">
+
+        <p>* Campo obrigatório</p>
+
+    </form>
 
 </body>
 
