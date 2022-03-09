@@ -15,6 +15,10 @@ li {
   float: left;
 }
 
+li#sobre {
+  float: right;
+}
+
 li a {
   display: block;
   color: white;
@@ -31,7 +35,19 @@ li a:hover:not(.active) {
   background-color: rgb(107, 155, 76);
 }
 
-div > h1{
+@media screen and (max-width: 600px) {
+  h1 {
+    margin-left: auto;
+  }
+  ul li#sobre, 
+  ul li {float: none;}
+}
+
+h1 {
+  margin-left: 15px;
+}
+
+h1.main{
   text-align: center;
 }
 
@@ -40,4 +56,22 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+form {
+  margin-left: 15px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+#limpar, #cadastrar {
+  padding: 8px 13px;
+  margin-top: 10px;
+  margin-right: 4px;
+  background-color: rgb(107, 155, 76);
+  color: white;
+  border: 1px solid rgb(107, 155, 76);
+  cursor: pointer;
 }
