@@ -43,7 +43,7 @@ li a:hover:not(.active) {
   ul li {float: none;}
 }
 
-h1 {
+h1, h2, p {
   margin-left: 15px;
 }
 
@@ -74,4 +74,8 @@ input {
   color: white;
   border: 1px solid rgb(107, 155, 76);
   cursor: pointer;
+}
+
+a {
+  color: rgb(107, 155, 76);
 }
