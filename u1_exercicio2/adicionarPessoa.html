@@ -24,19 +24,19 @@
     <form action="adicionadaComSucesso.html" method="post">
 
         <label for="nomeCompleto">Nome completo *:</label>
-        <input type="text" placeholder="Seu nome completo">
+        <input type="text" placeholder="Seu nome completo" required>
         <br/>
         
         <label for="dataNascimento">Data de nascimento *:</label>
-        <input type="date">
+        <input type="date" required>
         <br/>
 
         <label for="eMail">e-Mail *:</label> 
-        <input type="email" placeholder="nome@dominio.com">
+        <input type="email" placeholder="nome@dominio.com" required>
         <br/>
 
         <label for="sexo">Sexo*:</label><br/><br/>
-        <input type="radio" id="masculino" name="sexo" value="Masculino">
+        <input type="radio" id="masculino" name="sexo" value="Masculino" required>
         <label for="masculino">Masculino</label><br/>
         <input type="radio" id="feminino" name="sexo" value="Feminino">
         <label for="feminino">Feminino</label><br/>
@@ -47,9 +47,9 @@
         <input type="reset" id="limpar" value="Limpar">
         <input type="submit" id="cadastrar" value="Cadastrar!">
 
-        <p>* Campo obrigatório</p>
-
     </form>
+
+    <p>* Campo obrigatório</p>
 
 </body>
 
