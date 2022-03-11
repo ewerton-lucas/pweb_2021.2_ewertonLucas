@@ -3,6 +3,8 @@ body {
   margin: 0;
 }
 
+/*Estilo do menu*/
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -43,6 +45,8 @@ li a:hover:not(.active) {
   ul li {float: none;}
 }
 
+/*Estilo dos títulos*/
+
 h1, h2, p {
   margin-left: 15px;
 }
@@ -51,12 +55,16 @@ h1.main{
   text-align: center;
 }
 
+/*Estilo da imagem*/
+
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
+
+/*Estilo dos formulários*/
 
 form {
   margin-left: 15px;
@@ -76,6 +84,26 @@ input {
   cursor: pointer;
 }
 
+/*Estilo dos links*/
+
 a {
   color: rgb(107, 155, 76);
+}
+
+/*Estilo da tabela*/
+
+table {
+  margin-left: 15px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px 0 8px 0;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
 }
