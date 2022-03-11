@@ -37,15 +37,25 @@ li a:hover:not(.active) {
   background-color: rgb(107, 155, 76);
 }
 
+/*Responsividade*/
+
 @media screen and (max-width: 600px) {
-  h1 {
-    margin-left: auto;
+  body{
+    font-size: 14px;
+    margin: auto;
   }
-  ul li#sobre, 
-  ul li {float: none;}
+
+  ul li, ul li#sobre {
+    float: none;
+  }
+
+  div#tblPessoas {
+    overflow-x: auto;
+  }
+
 }
 
-/*Estilo dos títulos*/
+/*Estilo dos títulos e parágrafos*/
 
 h1, h2, p {
   margin-left: 15px;
@@ -95,7 +105,7 @@ a {
 table {
   margin-left: 15px;
   border-collapse: collapse;
-  width: 100%;
+  width: 98.9%;
 }
 
 th, td {
