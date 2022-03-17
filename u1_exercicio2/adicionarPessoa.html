@@ -19,37 +19,41 @@
         <li id="sobre"><a href="sobre.html">Sobre o site</a></li>
     </ul>
     
-    <h1>Formulário para cadastro de pessoas:</h1>
+    <div>
 
-    <form action="adicionadaComSucesso.html" method="post">
+        <h1>Formulário para cadastro de pessoas:</h1>
 
-        <label for="nomeCompleto">Nome completo *:</label>
-        <input type="text" placeholder="Seu nome completo" required>
-        <br/>
-        
-        <label for="dataNascimento">Data de nascimento *:</label>
-        <input type="date" required>
-        <br/>
+        <form action="adicionadaComSucesso.html" method="post">
+    
+            <label for="nomeCompleto">Nome completo *:</label>
+            <input type="text" placeholder="Seu nome completo" required>
+            <br/>
+            
+            <label for="dataNascimento">Data de nascimento *:</label>
+            <input type="date" required>
+            <br/>
+    
+            <label for="eMail">e-Mail *:</label> 
+            <input type="email" placeholder="nome@dominio.com" required>
+            <br/>
+    
+            <label for="sexo">Sexo*:</label><br/><br/>
+            <input type="radio" id="masculino" name="sexo" value="Masculino" required>
+            <label for="masculino">Masculino</label><br/>
+            <input type="radio" id="feminino" name="sexo" value="Feminino">
+            <label for="feminino">Feminino</label><br/>
+            <input type="radio" id="naoInformar" name="sexo" value="Não informar">
+            <label for="naoInformar">Não informar</label>
+            <br/>
+    
+            <input type="reset" id="limpar" value="Limpar">
+            <input type="submit" id="cadastrar" value="Cadastrar!">
+    
+        </form>
+    
+        <p>* Campo obrigatório</p>
 
-        <label for="eMail">e-Mail *:</label> 
-        <input type="email" placeholder="nome@dominio.com" required>
-        <br/>
-
-        <label for="sexo">Sexo*:</label><br/><br/>
-        <input type="radio" id="masculino" name="sexo" value="Masculino" required>
-        <label for="masculino">Masculino</label><br/>
-        <input type="radio" id="feminino" name="sexo" value="Feminino">
-        <label for="feminino">Feminino</label><br/>
-        <input type="radio" id="naoInformar" name="sexo" value="Não informar">
-        <label for="naoInformar">Não informar</label>
-        <br/>
-
-        <input type="reset" id="limpar" value="Limpar">
-        <input type="submit" id="cadastrar" value="Cadastrar!">
-
-    </form>
-
-    <p>* Campo obrigatório</p>
+    </div>
 
 </body>
 

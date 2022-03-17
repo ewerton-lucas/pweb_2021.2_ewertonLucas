@@ -39,9 +39,8 @@ li a:hover:not(.active) {
 
 /*Responsividade*/
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   body{
-    font-size: 14px;
     margin: auto;
   }
 
@@ -49,15 +48,9 @@ li a:hover:not(.active) {
     float: none;
   }
 
-  div#tblPessoas {
-    overflow-x: auto;
-  }
-
 }
 
-/*Estilo dos títulos e parágrafos*/
-
-h1, h2, p {
+div {
   margin-left: 15px;
 }
 
@@ -71,14 +64,11 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 90%;
+  height: auto;
 }
 
 /*Estilo dos formulários*/
-
-form {
-  margin-left: 15px;
-}
 
 input {
   margin-bottom: 10px;
@@ -103,9 +93,8 @@ a {
 /*Estilo da tabela*/
 
 table {
-  margin-left: 15px;
   border-collapse: collapse;
-  width: 98.9%;
+  width: 100%;
 }
 
 th, td {
