@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+  
+  /*Estilo do menu*/
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li#sobre {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: rgb(107, 155, 76);
+  }
+  
+  /*Responsividade*/
+  
+  @media screen and (max-width: 700px) {
+    body{
+      margin: auto;
+    }
+  
+    ul li, ul li#sobre {
+      float: none;
+    }
+  
+  }
+  
+  div {
+    margin-left: 15px;
+  }
+  
+  h1.main{
+    text-align: center;
+  }
+  
+  /*Estilo da imagem*/
+  
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: auto;
+  }
+  
+  /*Estilo dos formulários*/
+  
+  input {
+    margin-bottom: 10px;
+  }
+  
+  #limpar, #cadastrar {
+    padding: 8px 13px;
+    margin-top: 10px;
+    margin-right: 4px;
+    background-color: rgb(107, 155, 76);
+    color: white;
+    border: 1px solid rgb(107, 155, 76);
+    cursor: pointer;
+  }
+  
+  /*Estilo dos links*/
+  
+  a {
+    color: rgb(107, 155, 76);
+  }
+  
+  /*Estilo da tabela*/
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px 0 8px 0;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tbody tr:hover {
+    background-color: #f2f2f2;
+  }

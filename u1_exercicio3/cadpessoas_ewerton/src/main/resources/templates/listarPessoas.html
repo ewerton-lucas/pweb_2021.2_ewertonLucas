@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWeb - by Ewerton Lucas</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}">
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/adicionarPessoa">Adicionar pessoa</a></li>
+        <li><a class="active" href="/listarPessoas">Listar pessoas</a></li>
+        <li><a href="/public/noticias.html">Canais de notícias</a></li>
+        <li><a href="/public/contato.html">Mande um e-Mail</a></li>
+        <li id="sobre"><a href="/public/sobre.html">Sobre o site</a></li>
+    </ul>
+
+    <div>
+
+        <h1>Lista de pessoas cadastradas (em h1)</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nome completo</th>
+                    <th>Data de Nascimento</th>
+                    <th>e-Mail</th>
+                    <th>Sexo</th>
+                    <th>Editar</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="pessoa: ${pessoas}" >
+
+                    <td th:text="${pessoa.id}"></td>
+
+                    <td th:text="${pessoa.nome}"></td>
+
+                    <td th:text="${#temporals.format(pessoa.dataNascimento,'dd/MM/yyyy')}"></td>
+
+                    <td> 
+                        <a th:href="'mailto:'+${pessoa.email}"th:text="${pessoa.email}"></a> 
+                    </td>
+
+                    <td th:text="${pessoa.sexo}"></td>
+
+                    <td> 
+                        <a th:href="@{/editar/{id}(id=${pessoa.id})}">Editar</a>
+                    </td>
+
+                    <td> 
+                        <a th:href="@{/remover/{id}(id=${pessoa.id})}">Remover</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+        
+</body>
+
+</html>

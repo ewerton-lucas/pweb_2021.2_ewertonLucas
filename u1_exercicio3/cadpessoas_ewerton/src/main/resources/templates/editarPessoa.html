@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWeb - by Ewerton Lucas</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}">
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/adicionarPessoa">Adicionar pessoa</a></li>
+        <li><a href="/listarPessoas">Listar pessoas</a></li>
+        <li><a href="/public/noticias.html">Canais de notícias</a></li>
+        <li><a href="/public/contato.html">Mande um e-Mail</a></li>
+        <li id="sobre"><a href="/public/sobre.html">Sobre o site</a></li>
+    </ul>
+    
+    <div>
+       
+        <h1>Formulário para edição de pessoas:</h1>
+
+        <form action="#"
+        th:action="@{/editar/{id}(id=${pessoa.id})}" 
+        th:object="${pessoa}" 
+        method="POST">
+
+        <label for="nomeCompleto">Nome completo *:</label>
+        <input type="text" placeholder="Seu nome completo" th:field="*{nome}" required>
+        <br/>
+        
+        <label for="dataNascimento">Data de nascimento *:</label>
+        <input type="date" placeholder="dd/mm/aaaa" th:field="*{dataNascimento}" required>
+        <br/>
+
+        <label for="eMail">e-Mail *:</label> 
+        <input type="email" placeholder="nome@dominio.com" th:field="*{email}" required>
+        <br/>
+
+        <label for="sexo">Sexo*:</label><br/><br/>
+        <input type="radio" name="sexo" value="Masculino" th:field="*{sexo}" required>
+        <label for="masculino">Masculino</label><br/>
+        <input type="radio" name="sexo" value="Feminino" th:field="*{sexo}" required>
+        <label for="feminino">Feminino</label><br/>
+        <input type="radio" name="sexo" value="Não informar" th:field="*{sexo}" required>
+        <label for="naoInformar">Não informar</label>
+        <br/>
+
+        <input type="reset" id="limpar" value="Limpar">
+        <input type="submit" id="cadastrar" value="Cadastrar!">
+
+    </form>
+
+    <p>* Campo obrigatório</p>
+
+    </div>
+
+</body>
+
+</html>
