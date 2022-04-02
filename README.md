@@ -1,7 +1,7 @@
 # pweb_2021.2_ewertonLucas
 
 <div>
-    <h1>Olá!! Eu sou o Ewerton, estou cursando Sistemas de Informação na UFERSA-Campus Angicos.</h1>
+    <h2>Olá!! Eu sou o Ewerton, estou cursando Sistemas de Informação na UFERSA-Campus Angicos.</h2>
     <p>Seja bem vindo ao meu repositório da disciplina de Programação Web.</p>
 </div>
 
