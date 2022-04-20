@@ -1,0 +1,2 @@
+/*Primeira linha em branco - Spring não tava adicionado os valores*/
+INSERT INTO clientes (nome, genero, cidade, cep, email, numeroTelefone) VALUES ('Asas Balden Hausen Housen Flausen', 'Masculino', 'Alagoinha', '59517000','asas@hausen.flausen', '84991111111');
