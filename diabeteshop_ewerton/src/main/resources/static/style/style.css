@@ -1,0 +1,42 @@
+/* Variáveis */
+:root {
+    /* Paleta de cores */
+    --color-one: #F2526E;
+    --color-two: #F17A97;
+    --color-three: #6DDDF2;
+    --collor-four: #C1F0F4;
+}
+
+body{
+    min-width: 372px;
+}
+
+/* Navegação */
+.nav-bg{
+    background: -webkit-linear-gradient(to right, var(--color-one), var(--color-two));
+    background: linear-gradient(to left, var(--color-one), var(--color-two));
+}
+
+/* Carrossel */
+.carousel-body{
+    height: 200px;
+    background: -webkit-linear-gradient(to right, var(--color-three), var(--color-one));
+    background: linear-gradient(to left, var(--color-three), var(--color-one));
+}
+
+.carousel-title{
+    padding-top: 70px;
+}
+
+/* Rodapé */
+.footer-bg{
+    background: -webkit-linear-gradient(to right,  var(--color-one), var(--color-two));
+    background: linear-gradient(to left,  var(--color-one), var(--color-two));
+    
+}
+
+/* Hover */
+.color-hover:hover{
+    transition: 0.5s;
+    color: var(--collor-four) !important;
+}
