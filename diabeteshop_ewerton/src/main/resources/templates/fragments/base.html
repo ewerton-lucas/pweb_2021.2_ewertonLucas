@@ -46,25 +46,44 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
           <ul class="navbar-nav flex-grow-1">
+            
             <li class="nav-item">
               <a href="/" class="nav-link text-white color-hover">Início</a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-white color-hover"
-                >Entrar como admin</a
-              >
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white color-hover" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Entrar como admin
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item bg-color-hover" href="#">Cadastrar produto</a></li>
+                <li><a class="dropdown-item bg-color-hover" href="#">Ver produtos cadastrados</a></li>
+                <li><a class="dropdown-item bg-color-hover" href="/listarClientes">Ver clientes cadastrados</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item bg-color-hover" href="#">Entrar</a></li>
+              </ul>
             </li>
+
           </ul>
 
           <div class="align-self-end">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a href="/novoCliente" class="nav-link text-white color-hover">Cadastrar</a>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white color-hover" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Cliente
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item bg-color-hover" href="/novoCliente">Cadastrar</a></li>
+                  <li><a class="dropdown-item bg-color-hover" href="/listarClientes">Ver todos</a></li>
+                  <li><a class="dropdown-item bg-color-hover" href="#">Perfil</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item bg-color-hover" href="#">Entrar</a></li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a href="/listarClientes" class="nav-link text-white color-hover">Clientes</a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link text-white color-hover" href="#"
                   ><i class="bi bi-cart2 nav-icons"></i
@@ -78,9 +97,15 @@
 
     <!-- Header -->
 
-
     <!-- Main -->
 
+    <!-- Espaçamento -->
+
+    <div th:fragment="spacing">
+      <div class="d-block d-md-none space-01"></div>
+      <div class="d-none d-md-block d-lg-none space-02"></div>
+      <div class="d-none d-lg-block space-03"></div>
+    </div>
 
     <!-- Footer -->
 
@@ -107,6 +132,7 @@
     </footer>
 
     <!-- Option 1: Script Bootstrap -->
+
     <script
       th:fragment="script"
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

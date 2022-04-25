@@ -59,7 +59,7 @@
 
     <!-- Main -->
 
-    <main class="mb-3">
+    <main>
 
       <div class="container">
 
@@ -123,15 +123,22 @@
 
         </div>
 
+        <hr class="mt-3" />
+
       </div>
 
     </main>
+
+    <!-- Espaçamento -->
+
+    <div th:replace="~{fragments/base :: spacing}"></div>
 
     <!-- Footer -->
 
     <div th:replace="~{fragments/base :: footer}"></div>
 
     <!-- Option 1: Script Bootstrap -->
+    
     <div th:replace="~{fragments/base :: script}"></div>
 
   </body>
