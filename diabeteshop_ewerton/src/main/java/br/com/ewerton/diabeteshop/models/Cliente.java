@@ -37,7 +37,7 @@ public class Cliente implements Serializable{
 
     private String email;
 
-    private String numeroTelefone;
+    private String numero_telefone;
 
 
     public Long getId() {
@@ -88,12 +88,13 @@ public class Cliente implements Serializable{
         this.email = email;
     }
 
-    public String getNumeroTelefone() {
-        return this.numeroTelefone;
+
+    public String getNumero_telefone() {
+        return this.numero_telefone;
     }
 
-    public void setNumeroTelefone(String numeroTelefone) {
-        this.numeroTelefone = numeroTelefone;
+    public void setNumero_telefone(String numero_telefone) {
+        this.numero_telefone = numero_telefone;
     }
     
 }
