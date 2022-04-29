@@ -22,7 +22,7 @@
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/style/style.css}" />
 
-    <title>Diabeteshop : Principal</title>
+    <title>Diabeteshop : Título</title>
   </head>
 
   <body>
@@ -58,8 +58,8 @@
                 Entrar como admin
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item bg-color-hover" href="#">Cadastrar produto</a></li>
-                <li><a class="dropdown-item bg-color-hover" href="#">Ver produtos cadastrados</a></li>
+                <li><a class="dropdown-item bg-color-hover" href="/novoProduto">Cadastrar produto</a></li>
+                <li><a class="dropdown-item bg-color-hover" href="/listarProdutos">Ver produtos cadastrados</a></li>
                 <li><a class="dropdown-item bg-color-hover" href="/listarClientes">Ver clientes cadastrados</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item bg-color-hover" href="#">Entrar</a></li>
@@ -102,9 +102,7 @@
     <!-- Espaçamento -->
 
     <div th:fragment="spacing">
-      <div class="d-block d-md-none space-01"></div>
-      <div class="d-none d-md-block d-lg-none space-02"></div>
-      <div class="d-none d-lg-block space-03"></div>
+      <div class="space"></div>
     </div>
 
     <!-- Footer -->

@@ -36,16 +36,8 @@ body{
 
 /* Espaçamento */
 
-.space-01{
-    height: 273px;
-}
-
-.space-02{
-    height: 153px;
-}
-
-.space-03{
-    height: 129px;
+.space{
+    height: 100px;
 }
 
 /* Rodapé */

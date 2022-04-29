@@ -61,7 +61,7 @@
 
     <main>
 
-      <div class="container">
+      <section class="container">
 
         <div class="row">
 
@@ -125,7 +125,56 @@
 
         <hr class="mt-3" />
 
-      </div>
+      </section>
+
+      <!-- Sessão dos produtos-->
+
+      <section class="container">
+        <div class="row">
+      
+          <!-- Os cards ainda não estão dinâmicos-->
+      
+          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6  align-items-stretch">
+        
+            <div class="card text-center bg-light">
+        
+              <a href="#"><img th:src="@{images/cupcake.jpeg}" class="card-img-top" alt="Cupcake"></a>
+        
+              <div class="card-body text-center">
+                <h5 class="card-title">Cupcake</h5>
+                <p>Marca</p>
+                <strong>R$ 7.99</strong>
+              </div>
+        
+              <div class="card-footer text-center card-footer-bg">
+        
+                <div class="d-flex">
+        
+                  <button href="#" class="col-4 btn btn-danger">
+                    <i class="bi bi-cart-dash" title="remover"></i>
+                  </button>
+      
+                  <h3 class="col-4 card-title text-dark">1</h3>
+      
+                  <button href="#" class="col-4 btn btn-success">
+                    <i class="bi bi-cart-plus" title="adicionar"></i>
+                  </button>
+          
+                </div>
+                      
+              </div>
+        
+            </div>
+        
+          </div>
+        
+        </div>
+      
+          <hr class="mt-3" />
+          
+      </section>
+            
+      <!-- Sessão dos produtos fim-->
 
     </main>
 
