@@ -18,27 +18,27 @@ public class ProdutoController {
     @Autowired
     ProdutoRepository produtoRepo;
 
-    @GetMapping("/listarProdutos")
-    public ModelAndView listarProdutos(){
-        List<Produto> lista = produtoRepo.findAll();
-        ModelAndView modelAndView = new ModelAndView("listarProdutos");
-        modelAndView.addObject("produtos", lista);
+    @GetMapping("/produtos/listar")
+    public ModelAndView listar(){
+        List<Produto> produtos = produtoRepo.findAll();
+        ModelAndView modelAndView = new ModelAndView("produtos/listar");
+        modelAndView.addObject("produtos", produtos);
         return modelAndView;
     }
     
-    @GetMapping("/novoProduto")
+    @GetMapping("/produtos/novo")
     public ModelAndView formNovoProduto() {
-        ModelAndView modelAndView = new ModelAndView("/novoProduto");
+        ModelAndView modelAndView = new ModelAndView("produtos/novo");
         modelAndView.addObject(new Produto());
         return modelAndView;
     }
     
-    @PostMapping("/novoProduto")
+    @PostMapping("/produtos/novo")
     public String novoProduto(Produto salvarProduto) {
         salvarProduto.calcularVolume();
         salvarProduto.setData_cadastro(LocalDate.now());
         this.produtoRepo.save(salvarProduto);
-        return "redirect:/listarProdutos";
+        return "redirect:/produtos/listar";
     }
     
 }
