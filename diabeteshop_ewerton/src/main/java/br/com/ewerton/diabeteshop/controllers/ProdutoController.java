@@ -18,6 +18,14 @@ public class ProdutoController {
     @Autowired
     ProdutoRepository produtoRepo;
 
+    @GetMapping("/")
+    public ModelAndView index(){
+        List<Produto> produtos = produtoRepo.findAll();
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("produtos", produtos);
+        return modelAndView;
+    }
+
     @GetMapping("/produtos/listar")
     public ModelAndView listar(){
         List<Produto> produtos = produtoRepo.findAll();
