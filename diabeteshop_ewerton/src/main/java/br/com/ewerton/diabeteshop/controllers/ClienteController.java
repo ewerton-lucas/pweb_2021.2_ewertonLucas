@@ -26,6 +26,14 @@ public class ClienteController {
         return modelAndView;
     }
     
+    @GetMapping("/clientes/detalhes/{id}")
+    public ModelAndView detalhes(@PathVariable("id") Long id){
+        Cliente cliente = clienteRepo.getById(id);
+        ModelAndView modelAndView = new ModelAndView("clientes/detalhes");
+        modelAndView.addObject("cliente", cliente);
+        return modelAndView;
+    }
+
     @GetMapping("/clientes/novo")
     public ModelAndView formNovoCliente() {
         ModelAndView modelAndView = new ModelAndView("clientes/novo");
@@ -39,7 +47,7 @@ public class ClienteController {
         return "redirect:/clientes/listar";
     }
 
-    @GetMapping("/editar/{id}")
+    @GetMapping("/clientes/editar/{id}")
     public ModelAndView formEditarCliente(@PathVariable("id") long id) {
         Cliente cliente = clienteRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
         ModelAndView modelAndView = new ModelAndView("clientes/editar");
@@ -47,17 +55,16 @@ public class ClienteController {
         return modelAndView;
     }
 
-    @PostMapping("/editar/{id}")
-    public ModelAndView editarCliente(@PathVariable("id") long id, Cliente cliente) {
-        this.clienteRepo.save(cliente);
-        return new ModelAndView("redirect:/clientes/listar");
+    @PostMapping("/clientes/editar/{id}")
+    public ModelAndView editarCliente(@PathVariable("id") long id, Cliente editarCliente) {
+        this.clienteRepo.save(editarCliente);
+        return new ModelAndView("redirect:/clientes/detalhes/{id}");
     }
 
-    @GetMapping("/remover/{id}")
+    @GetMapping("/clientes/remover/{id}")
     public ModelAndView removerCliente(@PathVariable("id") long id) {
-        Cliente aRemover = clienteRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
-
-        clienteRepo.delete(aRemover);
+        Cliente removerCliente = clienteRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
+        clienteRepo.delete(removerCliente);
         return new ModelAndView("redirect:/clientes/listar");
     }
 

@@ -28,7 +28,7 @@
       <div class="container">
 
           <form action="#"
-            th:action="@{/editar/{id}(id=${cliente.id})}" 
+            th:action="@{/clientes/editar/{id}(id=${cliente.id})}" 
             th:object="${cliente}"
             method="post" class="py-2">
 
@@ -84,8 +84,12 @@
   
               <div class="row text-start">
                   <div class="my-3">
-                      <button type="reset" class="btn text-light btn-limpar color-hover">Limpar!</button>
-                      <button type="submit" class="btn text-light btn-enviar color-hover">Editar!</button>
+                        <button type="reset" class="btn btn-outline-primary">
+                            <i class="bi bi-x-square" title="Resetar!"></i>
+                        </button>
+                        <button type="submit" class="btn btn-outline-success">
+                            <i class="bi bi-check-square" title="Editar!"></i>
+                        </button>
                   </div>
               </div>
   

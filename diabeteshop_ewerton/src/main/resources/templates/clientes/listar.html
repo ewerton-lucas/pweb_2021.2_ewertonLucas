@@ -22,46 +22,25 @@
 
     <main>
         <div class="container  table-responsive">
-            <table class="table table align-middle">
+            <table class="table table-hover align-middle">
                 <thead>
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Nome</th>
-                      <th scope="col">Gênero</th>
-                      <th scope="col">Cidade</th>
-                      <th scope="col">CEP</th>
-                      <th scope="col">e-Mail</th>
-                      <th scope="col">Telefone</th>
-                      <th scope="col">Editar</th>
-                      <th scope="col">Excluir</th>
-                      
+                      <th scope="col">Detalhes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="cliente: ${clientes}" >
                       <th scope="row" th:text="${cliente.id}"></th>
                       <td th:text="${cliente.nome}"></td>
-                      <td th:text="${cliente.genero}"></td>
-                      <td th:text="${cliente.cidade}">Cidade X</td>
-                      <td th:text="${cliente.cep}"></td>
                       <td>
-                        <a th:href="'mailto:'+${cliente.email}"th:text="${cliente.email}"></a> 
-                      </td>
-                      <td th:text="${cliente.numero_telefone}"></td>
-                      <td>
-                        <a th:href="@{/editar/{id}(id=${cliente.id})}" class="btn btn-outline-primary">
-                          <i class="bi bi-pencil-square" title="Editar!"></i>
+                        <a th:href="@{/clientes/detalhes/{id}(id=${cliente.id})}" class="btn btn-outline-dark">
+                          <i class="bi bi-person-circle" title="Detalhes"></i>
                         </a>
                       </td>
-                      <td>
-                        <a th:href="@{/remover/{id}(id=${cliente.id})}" class="btn btn-outline-danger">
-                          <i class="bi bi-person-x-fill" title="Excluir Conta!"></i>
-                        </a>
-                      </td>
-
                     </tr>
-                </tbody>    
-
+                </tbody>  
               </table>
         </div>
     </main>
