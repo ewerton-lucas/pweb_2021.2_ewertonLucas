@@ -1,11 +1,13 @@
 package br.com.ewerton.diabeteshop.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -39,6 +41,8 @@ public class Cliente implements Serializable{
 
     private String numero_telefone;
 
+    @OneToMany
+    private List<Dependente> dependentes;
 
     public Long getId() {
         return this.id;
@@ -95,6 +99,14 @@ public class Cliente implements Serializable{
 
     public void setNumero_telefone(String numero_telefone) {
         this.numero_telefone = numero_telefone;
+    }
+
+    public List<Dependente> getDependentes() {
+        return this.dependentes;
+    }
+
+    public void setDependentes(List<Dependente> dependentes) {
+        this.dependentes = dependentes;
     }
     
 }

@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.ewerton.diabeteshop.models.Cliente;
+import br.com.ewerton.diabeteshop.models.Dependente;
 import br.com.ewerton.diabeteshop.repositories.ClienteRepository;
+import br.com.ewerton.diabeteshop.repositories.DependenteRepository;
 
 @Controller
 public class ClienteController {
@@ -18,19 +20,14 @@ public class ClienteController {
     @Autowired
     ClienteRepository clienteRepo;
 
+    @Autowired
+    DependenteRepository dependenteRepo;
+
     @GetMapping("/clientes/listar")
     public ModelAndView listar(){
         List<Cliente> clientes = clienteRepo.findAll();
         ModelAndView modelAndView = new ModelAndView("clientes/listar");
         modelAndView.addObject("clientes", clientes);
-        return modelAndView;
-    }
-    
-    @GetMapping("/clientes/detalhes/{id}")
-    public ModelAndView detalhes(@PathVariable("id") Long id){
-        Cliente cliente = clienteRepo.getById(id);
-        ModelAndView modelAndView = new ModelAndView("clientes/detalhes");
-        modelAndView.addObject("cliente", cliente);
         return modelAndView;
     }
 
@@ -66,6 +63,26 @@ public class ClienteController {
         Cliente removerCliente = clienteRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
         clienteRepo.delete(removerCliente);
         return new ModelAndView("redirect:/clientes/listar");
+    }
+
+    @GetMapping("/clientes/detalhes/{id}")
+    public ModelAndView detalhesCliente(@PathVariable("id") Long id){
+        Cliente cliente = clienteRepo.getById(id);
+        ModelAndView modelAndView = new ModelAndView("clientes/detalhes");
+        modelAndView.addObject("cliente", cliente);
+
+        Iterable<Dependente> dependentes = dependenteRepo.findByCliente(cliente);
+        modelAndView.addObject("dependentes", dependentes);
+        
+        return modelAndView;
+    }
+
+    @PostMapping("/clientes/detalhes/{id}")
+    public String novoDependente(@PathVariable("id") Long id, Dependente dependente) {
+        Cliente cliente = clienteRepo.getById(id);
+        dependente.setCliente(cliente);
+        dependenteRepo.save(dependente);
+        return "redirect:/clientes/detalhes/{id}";
     }
 
 }
