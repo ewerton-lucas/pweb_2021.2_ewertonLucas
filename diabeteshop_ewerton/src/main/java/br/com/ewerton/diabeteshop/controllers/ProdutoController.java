@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,6 +48,29 @@ public class ProdutoController {
         salvarProduto.setData_cadastro(LocalDate.now());
         this.produtoRepo.save(salvarProduto);
         return "redirect:/produtos/listar";
+    }
+
+    @GetMapping("/produtos/editar/{id}")
+    public ModelAndView formEditarProduto(@PathVariable("id") long id) {
+        Produto produto = produtoRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
+        ModelAndView modelAndView = new ModelAndView("produtos/editar");
+        modelAndView.addObject(produto);
+        return modelAndView;
+    }
+
+    @PostMapping("/produtos/editar/{id}")
+    public ModelAndView editarProduto(@PathVariable("id") long id, Produto editarProduto) {
+        editarProduto.calcularVolume();
+        editarProduto.setData_cadastro(LocalDate.now());  // Não deveria estar assim
+        this.produtoRepo.save(editarProduto);
+        return new ModelAndView("redirect:/produtos/listar");
+    }
+
+    @GetMapping("/produtos/remover/{id}")
+    public ModelAndView removerProduto(@PathVariable("id") long id) {
+        Produto removerProduto = produtoRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
+        produtoRepo.delete(removerProduto);
+        return new ModelAndView("redirect:/produtos/listar");
     }
     
 }
