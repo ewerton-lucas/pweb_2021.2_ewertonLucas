@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+  <!-- Head -->
+
+  <div th:replace="~{fragments/base :: head}"></div>
+
+  <body>
+
+    <!-- Nav -->
+
+    <div th:replace="~{fragments/base :: nav}"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Dependentes</h1>
+        </div>
+    </header>
+
+    <!-- Main -->
+
+    <main>
+        <div class="container  table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Data de nascimento</th>
+                      <th scope="col">Gênero</th>
+                      <th scope="col">Editar</th>
+                      <th scope="col">Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="dependente: ${dependentes}" >
+                      <th scope="row" th:text="${dependente.id}"></th>
+                      <td th:text="${dependente.nome_dependente}"></td>
+                      <td th:text="${#temporals.format(dependente.data_aniversario,'dd/MM/yyyy')}"></td>
+                      <td th:text="${dependente.genero_dependente}"></td>
+                      <td>
+                        <a th:href="@{/dependentes/editar/{id}(id=${dependente.id})}" 
+                        class="btn btn-outline-primary">
+                            <i class="bi bi-pencil-square" title="Editar!"></i>
+                        </a>
+                      </td>
+                      <td>
+                        <a th:href="@{/dependentes/remover/{id}(id=${dependente.id})}" 
+                        class="btn btn-outline-danger">
+                            <i class="bi bi-person-x-fill" title="Remover!"></i>
+                          </a>
+                      </td>
+                    </tr>
+                </tbody>  
+              </table>
+        </div>
+    </main>
+
+    <!-- Espaçamento -->
+
+    <div th:replace="~{fragments/base :: spacing}"></div>
+
+    <!-- Footer -->
+
+    <div th:replace="~{fragments/base :: footer}"></div>
+
+    <!-- Option 1: Script Bootstrap -->
+
+    <div th:replace="~{fragments/base :: script}"></div>
+
+  </body>
+</html>
