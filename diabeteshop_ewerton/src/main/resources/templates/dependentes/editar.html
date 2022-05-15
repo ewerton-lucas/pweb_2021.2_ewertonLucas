@@ -26,41 +26,41 @@
         <form th:action="@{/dependentes/editar/{id}(id=${dependente.id})}" 
         th:object="${dependente}" 
         method="post" class="pb-2">
-            <div class="my-3">
-                <label class="form-label">Nome : </label>
-                <input type="text" class="form-control" placeholder="Nome completo" 
-                name="nome_dependente" th:field="*{nome_dependente}"required>
-            </div>
 
-            <div class="my-3">
-              <label class="form-label">Data de nascimento : </label>
-              <input type="date" class="form-control" placeholder="dd/mm/aaaa" 
-              name="data_aniversario" th:field="*{data_aniversario}"required>
-            </div>
+        <input type="hidden" name="cliente" th:field="*{cliente.id}">
 
+          <div class="my-3">
+              <label class="form-label">Nome : </label>
+              <input type="text" class="form-control" placeholder="Nome completo" 
+              name="nome_dependente" th:field="*{nome_dependente}"required>
+          </div>
+          <div class="my-3">
+            <label class="form-label">Data de nascimento : </label>
+            <input type="date" class="form-control" placeholder="dd/mm/aaaa" 
+            name="data_aniversario" th:field="*{data_aniversario}"required>
+          </div>
+          <div>
+            <div class="row">
+              <label class="form-label">Gênero : </label>
+            </div>
             <div>
-              <div class="row">
-                <label class="form-label">Gênero : </label>
-              </div>
-              <div>
-                <input class="form-check-input" type="radio"name="genero_dependente"value="Masculino" th:field="*{genero_dependente}" required>
-                <label class="form-check-label">Masculino</label>
-                <input class="form-check-input" type="radio"name="genero_dependente"value="Feminino" 
-                th:field="*{genero_dependente}" required>
-                <label class="form-check-label">Feminino</label>
-                <input class="form-check-input" type="radio" name="genero_dependente"value="Não informado" th:field="*{genero_dependente}" required>
-                <label class="form-check-label">Não informar</label>
-              </div>
+              <input class="form-check-input" type="radio"name="genero_dependente"value="Masculino"th:field="*{genero_dependente}" required>
+              <label class="form-check-label">Masculino</label>
+              <input class="form-check-input" type="radio"name="genero_dependente"value="Feminino" 
+              th:field="*{genero_dependente}" required>
+              <label class="form-check-label">Feminino</label>
+              <input class="form-check-input" type="radio" name="genero_dependente"value="Não informado"th:field="*{genero_dependente}" required>
+              <label class="form-check-label">Não informar</label>
             </div>
-
-            <div class="row text-start">
-              <div class="my-3">
-                <button type="reset" class="btn text-light btn-limpar color-hover">Limpar
-                </button>
-                <button type="submit" class="btn text-light btn-enviar color-hover">Enviar
-                </button>
-              </div>
+          </div>
+          <div class="row text-start">
+            <div class="my-3">
+              <button type="reset" class="btn text-light btn-limpar color-hover">Limpar
+              </button>
+              <button type="submit" class="btn text-light btn-enviar color-hover">Enviar
+              </button>
             </div>
+          </div>
         </form>
 
       </div>

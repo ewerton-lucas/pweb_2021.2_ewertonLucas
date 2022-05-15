@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -36,9 +38,9 @@ public class Dependente implements Serializable{
 
     private String genero_dependente;
 
-   // @ManyToOne
-   // @JoinColumn(name="cliente_id")
-   // private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name="id_cliente")
+    private Cliente cliente;
 
     public Long getId() {
         return this.id;
@@ -70,6 +72,14 @@ public class Dependente implements Serializable{
 
     public void setGenero_dependente(String genero_dependente) {
         this.genero_dependente = genero_dependente;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 }

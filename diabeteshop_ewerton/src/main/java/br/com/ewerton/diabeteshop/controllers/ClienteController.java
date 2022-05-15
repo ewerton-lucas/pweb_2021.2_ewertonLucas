@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.ewerton.diabeteshop.models.Cliente;
+import br.com.ewerton.diabeteshop.models.Dependente;
 import br.com.ewerton.diabeteshop.services.ClienteService;
+import br.com.ewerton.diabeteshop.services.DependenteService;
 
 @Controller
 public class ClienteController {
 
     @Autowired
     ClienteService clienteService;
+
+    @Autowired
+    DependenteService dependenteService;
 
     @GetMapping("/clientes/listar")
     public ModelAndView listarClientes(){
@@ -52,9 +57,14 @@ public class ClienteController {
 
     @GetMapping("/clientes/detalhes/{id}")
     public ModelAndView detalhesCliente(@PathVariable("id") Long id){
+
         Cliente cliente = clienteService.getClienteById(id);
         ModelAndView modelAndView = new ModelAndView("clientes/detalhes");
         modelAndView.addObject("cliente", cliente);
+
+        modelAndView.addObject("dependente",  new Dependente());
+        modelAndView.addObject("dependentes", cliente.getDependentes());
+        
         return modelAndView;
     }
 

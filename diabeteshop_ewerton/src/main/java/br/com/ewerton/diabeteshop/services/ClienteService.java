@@ -2,6 +2,8 @@ package br.com.ewerton.diabeteshop.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ public class ClienteService {
         return clienteRepo.findAll();
     }
 
+    @Transactional
     public void saveCliente(Cliente cliente){
         clienteRepo.save(cliente);
     }
@@ -26,6 +29,7 @@ public class ClienteService {
 		return clienteRepo.findById(id).get();
 	}
 
+    @Transactional
     public void removeCliente(Cliente cliente) {
         clienteRepo.delete(cliente);
 	}

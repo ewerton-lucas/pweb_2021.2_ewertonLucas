@@ -29,8 +29,6 @@
                       <th scope="col">Nome</th>
                       <th scope="col">Data de nascimento</th>
                       <th scope="col">Gênero</th>
-                      <th scope="col">Editar</th>
-                      <th scope="col">Remover</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,18 +37,6 @@
                       <td th:text="${dependente.nome_dependente}"></td>
                       <td th:text="${#temporals.format(dependente.data_aniversario,'dd/MM/yyyy')}"></td>
                       <td th:text="${dependente.genero_dependente}"></td>
-                      <td>
-                        <a th:href="@{/dependentes/editar/{id}(id=${dependente.id})}" 
-                        class="btn btn-outline-primary">
-                            <i class="bi bi-pencil-square" title="Editar!"></i>
-                        </a>
-                      </td>
-                      <td>
-                        <a th:href="@{/dependentes/remover/{id}(id=${dependente.id})}" 
-                        class="btn btn-outline-danger">
-                            <i class="bi bi-person-x-fill" title="Remover!"></i>
-                          </a>
-                      </td>
                     </tr>
                 </tbody>  
               </table>

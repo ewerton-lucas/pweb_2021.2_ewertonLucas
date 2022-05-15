@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.ewerton.diabeteshop.models.Dependente;
+import br.com.ewerton.diabeteshop.services.ClienteService;
 import br.com.ewerton.diabeteshop.services.DependenteService;
 
 @Controller
@@ -15,6 +16,9 @@ public class DependenteController {
     
     @Autowired
     DependenteService dependenteService;
+
+    @Autowired
+    ClienteService clienteService;
 
     @GetMapping("/dependentes/listar")
     public ModelAndView getDependentes(){
@@ -32,6 +36,7 @@ public class DependenteController {
 
     @PostMapping("/dependentes/novo")
     public String salvarDependente(Dependente dependente) {
+        dependente.setCliente(dependente.getCliente());
         dependenteService.saveDependente(dependente);
         return "redirect:/dependentes/listar";
     }
@@ -46,6 +51,7 @@ public class DependenteController {
 
     @PostMapping("/dependentes/editar/{id}")
     public ModelAndView editarDependente(@PathVariable("id") long id, Dependente dependente) {
+        dependente.setCliente(clienteService.getClienteById(dependente.getCliente().getId()));
         dependenteService.saveDependente(dependente);
         return new ModelAndView("redirect:/dependentes/listar");
     }
