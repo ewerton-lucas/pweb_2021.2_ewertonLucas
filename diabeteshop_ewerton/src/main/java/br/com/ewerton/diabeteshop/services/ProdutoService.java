@@ -2,6 +2,8 @@ package br.com.ewerton.diabeteshop.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ public class ProdutoService {
         return produtoRepo.findAll();
     }
 
+    @Transactional
     public void saveProduto(Produto produto){
         produtoRepo.save(produto);
     }
@@ -26,7 +29,13 @@ public class ProdutoService {
 		return produtoRepo.findById(id).get();
 	}
 
+    @Transactional
     public void removeProduto(Produto produto) {
         produtoRepo.delete(produto);
 	}
+
+    public double calcularVolume(double altura, double largura, double profundidade){
+        return altura*largura*profundidade;
+    }
+
 }

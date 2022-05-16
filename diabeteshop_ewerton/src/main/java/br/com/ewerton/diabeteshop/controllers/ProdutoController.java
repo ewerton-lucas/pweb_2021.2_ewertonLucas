@@ -14,7 +14,6 @@ import br.com.ewerton.diabeteshop.services.ProdutoService;
 
 @Controller
 public class ProdutoController {
-
    
     @Autowired
     ProdutoService produtoService;
@@ -42,9 +41,17 @@ public class ProdutoController {
     
     @PostMapping("/produtos/novo")
     public String salvarProduto(Produto produto){
-        produto.calcularVolume();
+
+        double altura = produto.getAltura_produto();
+        double largura = produto.getLargura_produto();
+        double profundidade = produto.getProfundidade_produto();
+
+        produto.setVolume_produto(produtoService.calcularVolume(altura, largura, profundidade));
+
         produto.setData_cadastro(LocalDate.now());
+
         produtoService.saveProduto(produto);
+
         return "redirect:/";
     }
 
@@ -58,9 +65,17 @@ public class ProdutoController {
 
     @PostMapping("/produtos/editar/{id}")
     public ModelAndView editarProduto(@PathVariable("id") long id, Produto produto) {
-        produto.calcularVolume();
-        produto.setData_cadastro(LocalDate.now());  // Não deveria estar assim
+
+        double altura = produto.getAltura_produto();
+        double largura = produto.getLargura_produto();
+        double profundidade = produto.getProfundidade_produto();
+
+        produto.setVolume_produto(produtoService.calcularVolume(altura, largura, profundidade));
+
+        produto.setData_cadastro(produtoService.getProdutoById(id).getData_cadastro());
+
         produtoService.saveProduto(produto);
+
         return new ModelAndView("redirect:/produtos/listar");
     }
 

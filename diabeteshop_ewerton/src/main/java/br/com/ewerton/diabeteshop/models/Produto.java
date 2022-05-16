@@ -33,11 +33,11 @@ public class Produto implements Serializable{
 
     private String marca_produto;
 
-    private String altura_produto;
+    private double altura_produto;
 
-    private String largura_produto;
+    private double largura_produto;
 
-    private String profundidade_produto;
+    private double profundidade_produto;
 
     private double volume_produto; //AUTOMATICO
 
@@ -74,27 +74,27 @@ public class Produto implements Serializable{
         this.marca_produto = marca_produto;
     }
 
-    public String getAltura_produto() {
+    public double getAltura_produto() {
         return this.altura_produto;
     }
 
-    public void setAltura_produto(String altura_produto) {
+    public void setAltura_produto(double altura_produto) {
         this.altura_produto = altura_produto;
     }
 
-    public String getLargura_produto() {
+    public double getLargura_produto() {
         return this.largura_produto;
     }
 
-    public void setLargura_produto(String largura_produto) {
+    public void setLargura_produto(double largura_produto) {
         this.largura_produto = largura_produto;
     }
 
-    public String getProfundidade_produto() {
+    public double getProfundidade_produto() {
         return this.profundidade_produto;
     }
 
-    public void setProfundidade_produto(String profundidade_produto) {
+    public void setProfundidade_produto(double profundidade_produto) {
         this.profundidade_produto = profundidade_produto;
     }
 
@@ -137,13 +137,5 @@ public class Produto implements Serializable{
     public void setData_cadastro(LocalDate data_cadastro) {
         this.data_cadastro = data_cadastro;
     }
-
-    public void calcularVolume(){
-        double altura = Double.parseDouble(this.altura_produto);
-        double largura = Double.parseDouble(this.largura_produto);
-        double profundidade = Double.parseDouble(this.profundidade_produto);
-        double volume = altura*largura*profundidade;
-        setVolume_produto(volume);
-    }
-
+    
 }
