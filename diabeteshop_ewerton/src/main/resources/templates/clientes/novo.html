@@ -52,16 +52,35 @@
                     </div>
                 </div>
     
-                <div class="row">
+                <div class="row" id="viaCep">
+
                     <div class="col my-3">
-                        <label for="" class="form-label">Cidade : </label>
-                        <input type="text" class="form-control" th:field="*{cidade}" required>
+                        <label class="form-label">CEP : </label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+
+                        v-model="endereco.cep"
+                        @change="getCidadeByCep"
+
+                        placeholder="00000-000" 
+                        th:field="*{cep}" 
+                        required>
                     </div>
+
                     <div class="col my-3">
-                        <label for="" class="form-label">CEP : </label>
-                        <input type="text" class="form-control" placeholder="00000-000" 
-                        th:field="*{cep}" required>
+                        <label class="form-label">Cidade : </label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+
+                        v-model="endereco.cidade" 
+
+                        placeholder="Preenchimento automático"
+                        th:field="*{cidade}" 
+                        required>
                     </div>
+
                 </div>
 
                 <div class="row">
