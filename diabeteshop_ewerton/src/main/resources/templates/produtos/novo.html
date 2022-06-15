@@ -27,13 +27,17 @@
 
         <div class="container">
 
-            <form th:object="${produto}" th:action="@{/produtos/novo}" method="post" class="py-2">
+            <form th:object="${produto}" th:action="@{/produtos/novo}" enctype="multipart/form-data"
+                method="post" class="py-2">
                 
                 <label for="" class="form-label mt-3">Nome do produto : </label>
                 <input type="text" class="form-control" th:field="*{nome_produto}" required>
 
                 <label for="" class="form-label mt-3">Marca : </label>
                 <input type="text" class="form-control" th:field="*{marca_produto}" required>
+
+                <label for="" class="form-label mt-3">Imagem : </label>
+                <input type="file" class="form-control" name="fileImagem" required>
 
                 <div class="row my-3">
                     

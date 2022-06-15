@@ -139,7 +139,9 @@
         
             <div class="card text-center bg-light">
         
-              <a href="#"><img th:src="@{images/cupcake.jpeg}" class="card-img-top" alt="Cupcake"></a>
+              <a href="#">
+                <img th:src="|/imagem/${produto.id}|" class="card-img-top" alt="Imagem" id="img-index">
+              </a>
         
               <div class="card-body text-center">
                 <h5 class="card-title">

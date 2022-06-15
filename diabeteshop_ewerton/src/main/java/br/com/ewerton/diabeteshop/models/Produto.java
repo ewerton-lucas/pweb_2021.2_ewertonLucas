@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -49,6 +50,9 @@ public class Produto implements Serializable{
 
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate data_cadastro; //AUTOMATICO
+
+    @Lob
+    private byte[] imagem;
 
     public Long getId() {
         return this.id;
@@ -136,6 +140,14 @@ public class Produto implements Serializable{
 
     public void setData_cadastro(LocalDate data_cadastro) {
         this.data_cadastro = data_cadastro;
+    }
+
+    public byte[] getImagem() {
+        return this.imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
     }
     
 }

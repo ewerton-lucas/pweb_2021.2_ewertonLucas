@@ -1,5 +1,6 @@
 package br.com.ewerton.diabeteshop.controllers;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.ewerton.diabeteshop.models.Produto;
@@ -40,7 +44,7 @@ public class ProdutoController {
     }
     
     @PostMapping("/produtos/novo")
-    public String salvarProduto(Produto produto){
+    public String salvarProduto(Produto produto, @RequestParam("fileImagem") MultipartFile file){
 
         double altura = produto.getAltura_produto();
         double largura = produto.getLargura_produto();
@@ -49,6 +53,12 @@ public class ProdutoController {
         produto.setVolume_produto(produtoService.calcularVolume(altura, largura, profundidade));
 
         produto.setData_cadastro(LocalDate.now());
+
+        try {
+            produto.setImagem(file.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         produtoService.saveProduto(produto);
 
@@ -64,7 +74,7 @@ public class ProdutoController {
     }
 
     @PostMapping("/produtos/editar/{id}")
-    public ModelAndView editarProduto(@PathVariable("id") long id, Produto produto) {
+    public ModelAndView editarProduto(@PathVariable("id") long id, Produto produto, @RequestParam("fileImagem") MultipartFile file) {
 
         double altura = produto.getAltura_produto();
         double largura = produto.getLargura_produto();
@@ -73,6 +83,12 @@ public class ProdutoController {
         produto.setVolume_produto(produtoService.calcularVolume(altura, largura, profundidade));
 
         produto.setData_cadastro(produtoService.getProdutoById(id).getData_cadastro());
+
+        try {
+            produto.setImagem(file.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         produtoService.saveProduto(produto);
 
@@ -84,6 +100,13 @@ public class ProdutoController {
         Produto produto = produtoService.getProdutoById(id);
         produtoService.removeProduto(produto);
         return new ModelAndView("redirect:/produtos/listar");
+    }
+
+    @GetMapping("/imagem/{id}")
+    @ResponseBody
+    public byte[] exibirImagem(@PathVariable("id") long id){
+        Produto produto = this.produtoService.getProdutoById(id);
+        return produto.getImagem();
     }
     
 }

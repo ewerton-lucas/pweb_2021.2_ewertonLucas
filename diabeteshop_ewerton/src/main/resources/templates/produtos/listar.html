@@ -29,6 +29,7 @@
                 <thead>
                     <tr>
                       <th scope="col">#</th>
+                      <th scope="col">Imagem</th>
                       <th scope="col">Nome</th>
                       <th scope="col">Marca</th>
                       <th scope="col">Altura</th>
@@ -48,6 +49,9 @@
                     th:each="produto: ${produtos}"
                     class="line-hover text-center">
                         <th scope="row" th:text="${produto.id}"></th>
+                        <td>
+                            <img th:src="|/imagem/${produto.id}|" alt="Imagem" id="img-list">
+                        </td>
                         <td th:text="${produto.nome_produto}"></td>
                         <td th:text="${produto.marca_produto}"></td>
                         <td th:text="${produto.altura_produto}"></td>
@@ -59,7 +63,8 @@
                         <td th:text="${produto.preco_venda}"></td>
                         <td th:text="${#temporals.format(produto.data_cadastro,'dd/MM/yyyy')}"></td>
                         <td>
-                            <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" class="btn text-info btn-outline-info color-hover">
+                            <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" 
+                                class="btn text-info btn-outline-info color-hover">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
                         </td>

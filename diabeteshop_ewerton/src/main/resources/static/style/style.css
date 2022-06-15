@@ -4,7 +4,7 @@
     --color-one: #F2526E;
     --color-two: #F17A97;
     --color-three: #6DDDF2;
-    --collor-four: #C1F0F4;
+    --color-four: #C1F0F4;
 }
 
 body{
@@ -50,10 +50,22 @@ body{
 /* Hover */
 .color-hover:hover{
     transition: 0.5s;
-    color: var(--collor-four) !important;
+    color: var(--color-four) !important;
 }
 
 .bg-color-hover:hover{
     background-color: var(--color-one);
-    color: var(--collor-four);
+    color: var(--color-four);
+}
+
+/* Imagem-Catálogo */
+#img-index{
+    height: 150px;
+    width: 150px;
+}
+
+/* Imagem-Lista */
+#img-list{
+    height: 50px;
+    width: 50px;
 }

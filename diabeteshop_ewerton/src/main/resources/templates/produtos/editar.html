@@ -30,6 +30,7 @@
             <form 
             th:action="@{/produtos/editar/{id}(id=${produto.id})}" 
             th:object="${produto}" 
+            enctype="multipart/form-data"
             method="post" class="py-2">
                 
                 <label for="" class="form-label mt-3">Nome do produto : </label>
@@ -37,6 +38,9 @@
 
                 <label for="" class="form-label mt-3">Marca : </label>
                 <input type="text" class="form-control" th:field="*{marca_produto}" required>
+
+                <label for="" class="form-label mt-3">Imagem : </label>
+                <input type="file" class="form-control" name="fileImagem" required>
 
                 <div class="row my-3">
                     
