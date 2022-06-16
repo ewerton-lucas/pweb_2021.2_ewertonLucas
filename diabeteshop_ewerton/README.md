@@ -3,7 +3,7 @@
 SGBD instalado na máquina antes de prosseguir com as etapas.
 
 <div>
-    <img align="left" title="Atenção!" alt="Gif" src="https://animefire.net/img/lt/nd_small.gif" width="180" height="180" /> 
+    <img align="right" title="Atenção!" alt="Gif" src="https://animefire.net/img/lt/nd_small.gif" width="180" height="180" /> 
 </div>
 
 - Seguem os passos para inicializar o projeto:
